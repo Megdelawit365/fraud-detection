@@ -1,9 +1,8 @@
-import pandas as pd
-
 from src.utils import *
 from src.preprocessing import *
 from src.feature_engineering import *
 from src.geolocation import *
+import pandas as pd
 
 
 def main():
