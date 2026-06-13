@@ -2,3 +2,10 @@ data/
 .vscode/
 venv/
 __pycache__/
+
+.ipynb_checkpoints/
+
+models/
+
+*.csv
+*.pkl
