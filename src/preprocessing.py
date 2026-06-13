@@ -1,23 +1,41 @@
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import (
+    StandardScaler
+)
 
 
-def convert_datetime(df, columns):
+def convert_datetime(
+    df,
+    columns
+):
+
     for col in columns:
-        df[col] = pd.to_datetime(df[col])
+        df[col] = pd.to_datetime(
+            df[col]
+        )
 
     return df
 
 
-def scale_features(df, columns):
+def scale_columns(
+    df,
+    columns
+):
+
     scaler = StandardScaler()
 
-    df[columns] = scaler.fit_transform(df[columns])
+    df[columns] = scaler.fit_transform(
+        df[columns]
+    )
 
-    return df, scaler
+    return df
 
 
-def one_hot_encode(df, columns):
+def encode_columns(
+    df,
+    columns
+):
+
     return pd.get_dummies(
         df,
         columns=columns,
