@@ -89,15 +89,34 @@ pip install -r requirements.txt
 - Performed exploratory data analysis and identified key fraud patterns  
 - Handled severe class imbalance and prepared data for modeling  
   
+### Task 2: Model Building and Training
+
+- Split datasets using stratified train-test sampling to preserve fraud distribution
+- Trained Logistic Regression as an interpretable baseline model
+- Trained ensemble models (Random Forest and XGBoost) for improved fraud detection
+- Applied SMOTE on training data to address class imbalance
+- Evaluated models using F1-score, AUC-PR, and classification metrics
+
+### Task 3: Model Explainability
+
+- Extracted built-in feature importance from the selected fraud detection model
+- Applied SHAP to explain global and individual fraud predictions
+- Generated summary and force plots to understand model behavior
+- Identified the most influential features driving fraud classification
+- Converted explainability insights into business recommendations for fraud prevention
+  
 ---
 
 ## Technologies Used
 
-- Python – core programming language
-- Pandas, NumPy – data manipulation
-- Matplotlib, Seaborn – visualization
-- Scikit-learn – preprocessing and modeling utilities
-- imbalanced-learn – SMOTE and resampling techniques
-- XGBoost – gradient boosting models
-- SHAP – model explainability
-- Git & GitHub – version control
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- imbalanced-learn
+- XGBoost
+- SHAP
+- Git
+- GitHub
