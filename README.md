@@ -33,6 +33,13 @@ fraud-detection/
 └── .gitignore
 ```
 
+## Dataset Summary
+
+This project analyzes two datasets:
+
+* **E-Commerce Dataset (`Fraud_Data.csv`):** Contains ~151,000 online purchase records. Key features include purchase values, device and IP details, signup/purchase timestamps, and demographic information. Fraudulent transactions account for roughly **9.3%** of total activity.
+* **Credit Card Dataset (`creditcard.csv`):** Contains ~284,000 credit card transactions made by European cardholders. Features V_1 to V_28 are numerical variables transformed using PCA for privacy, alongside raw `Time` and `Amount` fields. Fraud is extremely rare at **0.17%** (~492 cases).
+
 ## Data Analysis and Preprocessing
 
 This phase cleans the data, finds key patterns, and prepares both datasets (`Fraud_Data.csv` and `creditcard.csv`) for model training.
