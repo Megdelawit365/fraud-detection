@@ -63,3 +63,33 @@ This phase cleans the data, finds key patterns, and prepares both datasets (`Fra
    * Applied **SMOTE** only to the training set to make fake examples of fraud cases so the model learns both classes equally without deleting normal data.
 
 All preprocessed training and testing files are saved in `data/processed/` for model building.
+
+## Model Building and Training
+
+This phase focuses on training baseline and ensemble models to detect fraud while reducing false alarms.
+
+### Training Strategy
+
+1. Baseline Model (Logistic Regression): Trained a simple linear model first to set a performance benchmark.
+2. Ensemble Model (XGBoost): Trained an XGBoost classifier to capture complex, non-linear relationships.
+3. 5-Fold Cross-Validation: Used Stratified K-Fold cross-validation on the training set (applying SMOTE inside each fold) to verify model stability.
+
+### Model Comparison
+
+| Metric | Logistic Regression (Baseline) | XGBoost Classifier (Ensemble) |
+| :--- | :--- | :--- |
+| **F1-Score** | 0.6712 | 0.7020 |
+| **AUC-PR** | 0.6574 | 0.7184 |
+| **Precision** | 0.92 | 1.00 |
+| **Recall** | 0.53 | 0.54 |
+| **False Positives** | 132 | 1 |
+| **CV F1-Score (Mean ± Std)** | — | 0.6823 ± 0.0077 |
+| **CV AUC-PR (Mean ± Std)** | — | 0.7181 ± 0.0098 |
+
+### Model Selection
+
+The selected model is XGBoost Classifier. The justifications are:
+
+* XGBoost outperforms Logistic Regression on all metrics as shown above.
+* XGBoost achieved 1.00 Precision on the test set, misclassifying only 1 single legitimate transaction as fraud out of 27,393 (compared to 132 false alarms from Logistic Regression). 
+* Tree-based models catch complex feature combinations such as rapid purchases (time_delta == 0) paired with high device sharing counts that a linear model doesn't.
