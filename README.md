@@ -4,8 +4,6 @@
 
 ```bash
 fraud-detection/
-├── .vscode/
-│   └── settings.json
 ├── .github/
 │   └── workflows/
 │       └── unittests.yml
@@ -20,14 +18,7 @@ fraud-detection/
 │   ├── modeling.ipynb
 │   ├── shap-explainability.ipynb
 │   └── README.md
-├── src/
-│   └── __init__.py
-├── tests/
-│   └── __init__.py
 ├── models/                     
-├── scripts/
-│   ├── __init__.py
-│   └── README.md
 ├── requirements.txt
 ├── README.md
 └── .gitignore
@@ -46,7 +37,7 @@ This phase cleans the data, finds key patterns, and prepares both datasets (`Fra
 
 ### Key Insights & Findings
 
-* **Severe Class Imbalance:** Fraud is extremely rare in both datasets (less than 1% in Credit Card data and about 9% in E-Commerce data). 
+* **Severe Class Imbalance:** Fraud is extremely rare in both datasets (less than 1% in Credit Card data and about 9% in E-Commerce data).
 * **Device vs. User Velocity:** Individual user accounts in `Fraud_Data.csv` only buy once. Looking at activity per **device** instead shows clear patterns of scammers using automated bots across multiple accounts on one machine.
 * **Time Delta Signal:** Instant purchases (`time_delta == 0` right after signing up) are a massive indicator of fraud.
 
@@ -91,5 +82,5 @@ This phase focuses on training baseline and ensemble models to detect fraud whil
 The selected model is XGBoost Classifier. The justifications are:
 
 * XGBoost outperforms Logistic Regression on all metrics as shown above.
-* XGBoost achieved 1.00 Precision on the test set, misclassifying only 1 single legitimate transaction as fraud out of 27,393 (compared to 132 false alarms from Logistic Regression). 
+* XGBoost achieved 1.00 Precision on the test set, misclassifying only 1 single legitimate transaction as fraud out of 27,393 (compared to 132 false alarms from Logistic Regression).
 * Tree-based models catch complex feature combinations such as rapid purchases (time_delta == 0) paired with high device sharing counts that a linear model doesn't.
